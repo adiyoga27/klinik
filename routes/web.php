@@ -111,7 +111,7 @@ Route::get('users/profile', 'ProfileController@index')->name('profile.edit')->mi
 
 Route::get('users/profile/{id}', 'ProfileController@edit')->name('profile.edit.admin')->middleware('auth','admin');
 
-Route::patch('users/profile/simpan', 'ProfileController@simpan')->name('profile.simpan')->middleware('auth');\
+Route::patch('users/profile/simpan', 'ProfileController@simpan')->name('profile.simpan')->middleware('auth');
 //endProfile
 
 //Users
