@@ -115,30 +115,39 @@
                     <input type="hidden" name="idpasien" value="{{ $iden->id }}">
                     @endforeach
                         <div class="form-group row">
+                          <div class="col-sm-12 mb-3 mb-sm-0">
                             <label for="dokter">Dokter Pemeriksa</label>
                             <select class="form-control " name="dokter" {{(Auth::user()->admin !== 1) ? (Auth::user()->profesi !== "Staff") ? 'disabled="true"' : '' : ''}}>
                             @foreach ($dokters as $dokter)
                             <option value ="{{$dokter->id}}" {{$dokter->id === Auth::user()->id ? 'selected' : ''}}>dr. {{get_value('users',$dokter->id,'name') }}</option>
                             @endforeach
                             </select>
+                          </div>
                         </div>   
                         <div class="form-group row">
+                          <div class="col-sm-12 mb-3 mb-sm-0">
                             <label for="keluhan-utama">Keluhan Utama</label>
                             <input type="text" class="form-control " name="keluhan_utama" value="{{Request::old('keluhan_utama')}}" required>
+                          </div>
                         </div>
                         <div class="form-group row">
+                          <div class="col-sm-12 mb-3 mb-sm-0">
                             <label for="anamnesis">Anamnesis</label>
                             <textarea type="date" class="form-control " name="anamnesis" required></textarea>
+                          </div>
                         </div>
                         <div class="form-group row">
+                          <div class="col-sm-12 mb-3 mb-sm-0">
                             <label for="pemeriksaan_fisik">Pemeriksaan Fisik</label>
                             <textarea type="date" class="form-control " name="px_fisik" required></textarea>
+                          </div>
                         </div>
                         <div class="form-group row">
                           <div class="col-sm-6 mb-3 mb-sm-0">
                           <label for="penunjang">Pemeriksaan Penunjang</label>
                         </div>
                         </div>
+                        
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                             
@@ -149,14 +158,18 @@
                                 @endforeach
                             </select>  
                           </div>
-                            <div class="col-sm-6">
-                                <a href="javascript:;" onclick="addpenunjang()" type="button" name="add" id="add" class="btn btn-success">Tambahkan</a>
-                            </div>
+                       
                           </div>
+                         
                         <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                            <table id="dynamicTable"></table>
+                          <div class="col-sm-12 mb-3 mb-sm-0">
+                              <table id="dynamicTable"></table>
+                          </div>
                         </div>
+                        <div class="form-group row">
+                          <div class="col-sm-6 mb-3 mb-sm-0">
+                              <a href="javascript:;" onclick="addpenunjang()" type="button" name="add" id="add" class="btn btn-success">Tambahkan</a>
+                          </div>
                         </div>
                         <div class="form-group row">
                           <div class="col-sm-12 mb-3 mb-sm-0">
@@ -167,7 +180,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="reseplist">Resep</label>
-                        `   </div>
+                           </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9 mb-0 mb-sm-0">

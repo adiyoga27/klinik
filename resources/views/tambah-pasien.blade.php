@@ -1,3 +1,4 @@
+
 @extends('master')
 @foreach ($metadatas as $metadata)
     @section('judul_halaman')
@@ -8,6 +9,9 @@
     @endsection
 @endforeach
 @section('konten')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Formulir Pasien Baru</h6>
@@ -23,8 +27,11 @@
                           <div class="col-sm-2">
                             <label align="center" class ="form-text">Tanggal lahir :</label>
                           </div>
-                          <div class="col-sm-4">
-                            <input type="date" class="form-control " name="Tanggal_Lahir" placeholder="Tanggal lahir">
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control " name="Tanggal_Lahir" placeholder="Tanggal lahir" id="datepicker">
+                          </div>
+                          <div class="col-sm-1">
+                            <input type="text" class="form-control " name="a" id="umur" placeholder="Usia" readonly>
                           </div>
                         </div>
                         <div class="form-group">
@@ -90,4 +97,20 @@
                     </form>
                 </div>
               </div>
+              <script>
+                $(function() {
+                    $( "#datepicker" ).datepicker();
+                });
+              
+                window.onload=function(){
+                    $('#datepicker').on('change', function() {
+                        var dob = new Date(this.value);
+                        var today = new Date();
+                        var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+                        $('#umur').val(age+" tahun");
+                    });
+                }
+              
+              </script>
 @endsection
+
